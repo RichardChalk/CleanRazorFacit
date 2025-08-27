@@ -1,0 +1,34 @@
+﻿@page
+@model CustomerApp.Web.Pages.Customers.CreateModel
+@{
+    ViewData["Title"] = "Create Customer";
+}
+
+<h2>Create Customer</h2>
+
+<form method="post" class="form">
+    <div class="form-group mb-2">
+        <label asp-for="Customer.Name" class="form-label"></label>
+        <input asp-for="Customer.Name" class="form-control" />
+        <span asp-validation-for="Customer.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="Customer.Age" class="form-label"></label>
+        <input asp-for="Customer.Age" class="form-control" type="number" />
+        <span asp-validation-for="Customer.Age" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Customer.Gender" class="form-label"></label>
+        <select asp-for="Customer.Gender" class="form-control"
+                asp-items="Html.GetEnumSelectList<CustomerApp.Domain.Gender>()"></select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

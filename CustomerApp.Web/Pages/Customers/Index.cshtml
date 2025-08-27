@@ -1,0 +1,32 @@
+﻿@page
+@model CustomerApp.Web.Pages.Customers.IndexModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Kunder";
+}
+
+<a asp-page="Create" class="btn btn-success mb-3">Skapa ny kund!</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>Namn</th><th>Ålder</th><th>Födelseår</th><th>Kön</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model.Customers)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Age</td>
+                <td>@c.BirthYear</td>
+                <td>@c.Gender</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@c.Id" class="btn btn-info btn-sm">Info</a>
+                    <a asp-page="Edit" asp-route-id="@c.Id" class="btn btn-primary btn-sm">Editera</a>
+                    <a asp-page="Delete" asp-route-id="@c.Id" class="btn btn-danger btn-sm">Ta bort</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

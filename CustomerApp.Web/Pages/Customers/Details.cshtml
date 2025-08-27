@@ -1,0 +1,20 @@
+﻿@page
+@model CustomerApp.Web.Pages.Customers.DetailsModel
+@{
+}
+
+<h2>Kunddetaljer</h2>
+@if (Model.Customer != null)
+{
+    <dl class="row">
+        <dt class="col-sm-2">Namn</dt>
+        <dd class="col-sm-10">@Model.Customer.Name</dd>
+        <dt class="col-sm-2">Ålder</dt>
+        <dd class="col-sm-10">@Model.Customer.Age</dd>
+        <dt class="col-sm-2">Födelseår</dt>
+        <dd class="col-sm-10">@Model.Customer.BirthYear</dd>
+        <dt class="col-sm-2">Kön</dt>
+        <dd class="col-sm-10">@Model.Customer.Gender</dd>
+    </dl>
+    <a asp-page="Index" class="btn btn-secondary">Tillbaka</a>
+}

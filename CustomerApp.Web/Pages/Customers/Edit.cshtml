@@ -1,0 +1,22 @@
+﻿@page "{id:int}"
+@model CustomerApp.Web.Pages.Customers.EditModel
+@{
+}
+
+<h2>Redigera kund</h2>
+<form method="post" class="form">
+    <div class="form-group">
+        <label asp-for="Customer.Name"></label>
+        <input asp-for="Customer.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.Age"></label>
+        <input asp-for="Customer.Age" class="form-control" type="number" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Customer.Gender"></label>
+        <select asp-for="Customer.Gender" class="form-control" asp-items="Html.GetEnumSelectList<CustomerApp.Domain.Gender>()"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Spara</button>
+    <a asp-page="Index" class="btn btn-secondary">Avbryt</a>
+</form>

@@ -1,0 +1,14 @@
+﻿@page "{id:int}"
+@model CustomerApp.Web.Pages.Customers.DeleteModel
+@{
+}
+
+<h2>Ta bort kund</h2>
+@if (Model.Customer != null)
+{
+    <p>Är du säker på att du vill ta bort @Model.Customer.Name?</p>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Ta bort</button>
+        <a asp-page="Index" class="btn btn-secondary">Avbryt</a>
+    </form>
+}
